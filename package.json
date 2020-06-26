@@ -1,0 +1,28 @@
+{
+  "name": "project-8---sql-library-manager",
+  "version": "1.0.0",
+  "description": "sql library manager",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevMo-13/project-8---sql-library-manager.git"
+  },
+  "author": "Monique Cinatl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevMo-13/project-8---sql-library-manager/issues"
+  },
+  "homepage": "https://github.com/DevMo-13/project-8---sql-library-manager#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "pug": "^3.0.0",
+    "sequelize": "^6.1.0",
+    "sequelize-cli": "^6.0.0",
+    "sqlite3": "^4.2.0"
+  }
+}

@@ -15,7 +15,9 @@ function asyncHandler(cb) {
 
 // GET the full list of books.
 router.get('/', asyncHandler(async (req, res) => {
-	const books = await Book.findAll();
+	const books = await Book.findAll({
+		order: [["author", "ASC"]]
+	  });
     res.render('index', { books, title: 'Books' });
 }));
 
@@ -81,6 +83,7 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
 	const book = await Book.findByPk(req.params.id);
 
 	if (book) {
+		console.log(book.title, book.id, 'delete');
 		await book.destroy();
 		res.redirect('/books');
 	} else {

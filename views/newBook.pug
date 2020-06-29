@@ -6,7 +6,7 @@ block content
 	h1= title
 	form(action='/books/new', method='post')
 		if(errors)
-			h2.error Ooooops, an error occured!
+			h2.error Oops, an error occured!
 			ul
 			each error in errors
 				li.error= error.message

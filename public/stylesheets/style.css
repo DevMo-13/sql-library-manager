@@ -6,22 +6,22 @@ body {
 a {
   color: #019875;
   text-decoration: none;
-  font-weight: bold;
   transition: 0.4s;
 }
 
-  a:hover {
-    color: black;
-  }
+a:hover {
+  color: black;
+}
 
 a.button, input[type=submit] {
   color: white;
   background: #019875;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Garamond", serif;
   padding: 10px 14px 12px;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 2px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 form a.button, input[type=submit] {
@@ -33,9 +33,9 @@ input[type=submit] {
   border: 0;
 }
 
-  a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
-  }
+a.button:hover, input[type=submit]:hover {
+  background-color: #01b189;
+}
 
 p {
   margin: 20px auto;
@@ -48,15 +48,19 @@ ul {
   line-height: 1.3em;
 }
 
+h1 {
+  text-transform: uppercase;
+}
+
 h2 {
   border-top: 2px solid #e7e7e7;
   padding-top: 20px;
 }
 
 th {
-  border-bottom: 2px solid #D8B493;
+  border-bottom: 2px solid #000000;
   text-align: left;
-  padding: 5px 20px 5px 10px;
+  padding: 10px 20px 10px 10px;
 }
 
 tr {
@@ -68,7 +72,7 @@ tr:nth-child(2n) {
 }
 
 td {
-  padding: 5px 20px 5px 10px;
+  padding: 10px 20px 10px 10px;
 }
 
 label {
@@ -80,7 +84,7 @@ label {
 
 input {
   padding: 10px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Garamond", serif;
   font-size: 14px;
   border-radius: 2px;
   border-color: #E7E7E7;
@@ -93,5 +97,5 @@ input[type=text] {
 }
 
 .error {
-  color: rgb(236, 15, 15);
+  color: #CA2300;
 }

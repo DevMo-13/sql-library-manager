@@ -8,7 +8,7 @@ function asyncHandler(cb) {
         try {
             await cb(req, res, next);
         } catch (error) {
-            res.status(500).render('error', {error, title: 'Server Error'});
+            next(error);
         };
     };
 };
@@ -50,7 +50,9 @@ router.get('/:id', asyncHandler(async (req, res) => {
 	if (book) {
 		res.render('update-book', { book, title: book.title }); 
 	} else {
-		res.status(404).render('page-not-found', { error: 404, title: 'Page Not Found' });
+		const err = new Error();
+		err.status = 404;
+		throw err;
 	};
 }));
   
@@ -65,7 +67,9 @@ router.post('/:id', asyncHandler(async (req, res) => {
 			await book.update(req.body);
 			res.redirect('/books');
 		} else {
-			res.status(404).render('page-not-found', { error: 404, title: 'Page Not Found' });
+			const err = new Error();
+			err.status = 404;
+			throw err;
 		};
 	} catch (error) {
 		if (error.name === 'SequelizeValidationError') {
@@ -87,7 +91,9 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
 		await book.destroy();
 		res.redirect('/books');
 	} else {
-		res.sendStatus(404).render('page-not-found', { error: 404, title: 'Page Not Found' });
+		const err = new Error();
+		err.status = 404;
+		throw err;
 	};
 }));
 

@@ -30,7 +30,6 @@ app.use('/books', books);
 app.use( (req, res, next) => {
 	const err = new Error();
     err.status = 404;
-    err.title = 'Page Not Found';
     next(err);
 });
 
@@ -40,10 +39,12 @@ app.use( (err, req, res, next) => {
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 	if (err.status === 404) {
+		console.log('Global error handler called - Page Not Found');
 		res.render('page-not-found', { err, title: 'Page Not Found' });
 	} else {
 		const err = new Error();
 		err.status = 500;
+		console.log('Global error handler called - Server Error');
 		res.render('error', { err, title: 'Server Error' });
 	}
 });

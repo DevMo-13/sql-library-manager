@@ -1,7 +1,7 @@
 /******************************************
 Treehouse Techdegree:
 FSJS project 8 - SQL Library Manager
---aiming for exceeds expectations--
+--aiming for meets expectations--
 ******************************************/
 
 const express = require('express');
@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use('/', routes);
 app.use('/books', books);
 
-// Catch 404 and forward to error handler.
+// Catch 404 error and forward to global error handler.
 app.use( (req, res, next) => {
 	const err = new Error();
     err.status = 404;

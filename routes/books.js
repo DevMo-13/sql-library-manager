@@ -23,7 +23,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
 // GET the create new book form.
 router.get('/new', asyncHandler(async (req, res) => {
-	res.render('newBook', { book: {}, title: 'New Book' });
+	res.render('new-book', { book: {}, title: 'New Book' });
 }));
   
 // POST new book to database.
@@ -36,7 +36,7 @@ router.post('/new', asyncHandler(async (req, res) => {
 	} catch (error) {
 		if (error.name === 'SequelizeValidationError') {
 			book = await Book.build(req.body);
-			res.render('newBook', { book, errors: error.errors, title: 'New Book' });
+			res.render('new-book', { book, errors: error.errors, title: 'New Book' });
 		} else {
 			throw error;
 		};
@@ -48,9 +48,9 @@ router.get('/:id', asyncHandler(async (req, res) => {
 	const book = await Book.findByPk(req.params.id);
 
 	if (book) {
-		res.render('updateBook', { book, title: book.title }); 
+		res.render('update-book', { book, title: book.title }); 
 	} else {
-		res.status(404).render('pageNotFound', { error: 404, title: 'Page Not Found' });
+		res.status(404).render('page-not-found', { error: 404, title: 'Page Not Found' });
 	};
 }));
   
@@ -65,13 +65,13 @@ router.post('/:id', asyncHandler(async (req, res) => {
 			await book.update(req.body);
 			res.redirect('/books');
 		} else {
-			res.status(404).render('pageNotFound', { error: 404, title: 'Page Not Found' });
+			res.status(404).render('page-not-found', { error: 404, title: 'Page Not Found' });
 		};
 	} catch (error) {
 		if (error.name === 'SequelizeValidationError') {
 			book = await Book.build(req.body);
 			book.id = req.params.id;
-			res.render('updateBook', { book, errors: error.errors, title: 'Update Book' })
+			res.render('update-book', { book, errors: error.errors, title: 'Update Book' })
 		} else {
 			throw error;
 		};
@@ -87,7 +87,7 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
 		await book.destroy();
 		res.redirect('/books');
 	} else {
-		res.sendStatus(404).render('pageNotFound', { error: 404, title: 'Page Not Found' });
+		res.sendStatus(404).render('page-not-found', { error: 404, title: 'Page Not Found' });
 	};
 }));
 

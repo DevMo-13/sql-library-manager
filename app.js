@@ -40,7 +40,7 @@ app.use( (err, req, res, next) => {
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 	if (err.status === 404) {
-		res.render('pageNotFound', { err, title: 'Page Not Found' });
+		res.render('page-not-found', { err, title: 'Page Not Found' });
 	} else {
 		const err = new Error();
 		err.status = 500;

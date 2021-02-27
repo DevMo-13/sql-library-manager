@@ -1,7 +1,9 @@
 # SQL LIBRARY MANAGER
- Treehouse FSJS Techdegree Project 8 - SQL Library Manager
+Treehouse FSJS Techdegree Project 8 - SQL Library Manager
 
 Dynamic web application that manages a library's collection of books.
+
+Live link to the project can be found here: https://treehouse-sql-library-manager.herokuapp.com/books.
 
 ---
 
